@@ -6,12 +6,12 @@ const Bot = new twit({
     consumer_secret: process.env.API_SECRET_KEY,
     access_token: process.env.ACCESS_TOKEN,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-    timeout_ms: 15*1000,
+    timeout_ms: 60*1000,
 });
 
 function BotInit(){
     var query = {
-        q: 'ufes universidade do espirito santo', 
+        q: 'ufes', 
     }
 
     Bot.get("search/tweets", query, BotGotLatestTweet)
@@ -34,5 +34,5 @@ function BotInit(){
         }
     }
 }
-setInterval(BotInit, 1*15*1000)
+setInterval(BotInit, 1*60*1000)
 BotInit()
